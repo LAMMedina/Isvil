@@ -1,4 +1,5 @@
 ---
+import SpeedInsights from "@vercel/speed-insights/astro";
 import { verifyToken } from '../lib/auth';
 import AdminSidebar from '@components/admin/AdminSidebar';
 import ViewTransitions from 'astro/components/ViewTransitions.astro';
@@ -22,6 +23,7 @@ if (!user) {
 		<link rel="icon" type="image/svg+xml" href="/img/favicon.png" />
     <title>{title} - Admin Dashboard</title>
     <ViewTransitions />
+    <SpeedInsights />
   </head>
   <body class="bg-gray-100">
     <div class="flex h-screen">

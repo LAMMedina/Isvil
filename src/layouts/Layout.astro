@@ -1,5 +1,6 @@
 ---
 // src/layouts/Layout.astro
+import SpeedInsights from "@vercel/speed-insights/astro";
 import { ViewTransitions } from 'astro:transitions';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
@@ -23,6 +24,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<ViewTransitions />
+		<SpeedInsights />
 		<style>
 			
 
@@ -30,6 +32,7 @@ const { title } = Astro.props;
 		</style>
 	</head>
 	<body>
+		
 		<Banner />
 		<Navbar client:load/>
 		<main class="bg-six">
