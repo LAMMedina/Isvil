@@ -28,7 +28,7 @@ export default function BentoGrid() {
             const textSize = index === 0 ? 'md:text-3xl' : index === 4 ? 'md:text-2xl' : '';
 
             return (
-              <a href={`/productos?categoria=${encodeURIComponent(category.name)}`} key={index} className={`relative overflow-hidden rounded-lg shadow-lg hover:scale-105 hover:shadow-lg hover:translate-y-[-10px] transition-transform duration-300 ease-in-out md:shadow-slate-700 ${
+              <a href={`/productos?categoria=${encodeURIComponent(category.name)}`} key={index} className={`relative overflow-hidden rounded-lg shadow-lg hover:scale-105 hover:shadow-lg hover:translate-y-[-10px] transition-transform duration-300 ease-in-out md:shadow-slate-400 ${
                   index === 0 ? 'col-span-3 row-span-2' : 
                   index === 4 ? 'col-span-2' : ''
                 }`}>
