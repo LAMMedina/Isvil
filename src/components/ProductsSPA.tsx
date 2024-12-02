@@ -132,8 +132,8 @@ export default function ProductsSPA({ categoria }) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 h-full relative">
       <div className='flex justify-between items-center max-w-6xl'>
-      {!selectedCategoryId && <h1 className="text-3xl font-bold mb-8 hidden sm:block">Nuestros Productos</h1>} 
-      {selectedCategoryId && <h1 className="text-3xl font-bold mb-8 float-end relative right-0 text-right">Categoría: <span className="text-primary text-xl">{categories.find(category => category.id === Number(selectedCategoryId))?.name || 'No disponible'}</span></h1>}
+      {!selectedCategoryId && <h1 className="text-3xl font-bold mb-8">Nuestros Productos</h1>} 
+      {selectedCategoryId && <h1 className="text-3xl font-bold mb-8 sm:float-end sm:relative sm:right-0 sm:text-right"> Categoría: <span className="text-primary text-xl">{categories.find(category => category.id === Number(selectedCategoryId))?.name || 'No disponible'}</span></h1>}
       </div>
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
        
