@@ -123,7 +123,9 @@ export default function ProductsSPA({ categoria }) {
   // Mostrar mensaje de carga si los productos o categorías no están disponibles
   if (loading) {
     return (
+      <div className='h-screen flex justify-center items-center'>
       <Spinner />
+      </div>
     );
   }
 

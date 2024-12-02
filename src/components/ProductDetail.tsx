@@ -80,7 +80,11 @@ export default function ProductDetail({ id }: ProductDetailProps) {
   }, [id]);
 
   if (loading) {
-    return <Spinner />;
+    return (
+    <div className='h-screen flex justify-center items-center'>
+      <Spinner />
+    </div>
+    );
   }
 
   if (error) {
