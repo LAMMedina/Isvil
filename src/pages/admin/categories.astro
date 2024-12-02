@@ -1,0 +1,8 @@
+---
+import AdminLayout from '@layouts/AdminLayout.astro';
+import CategoryList from '@admin/CategoryList';
+---
+
+<AdminLayout title="Categories">
+  <CategoryList client:load />
+</AdminLayout>

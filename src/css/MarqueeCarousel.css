@@ -1,0 +1,56 @@
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+  }
+  
+  .marquee {
+    display: inline-flex;
+    animation: scroll 60s linear infinite;
+  }
+  .marquee-reverse {
+    display: inline-flex;
+    animation: scroll-reverse 80s linear infinite;
+    color: #ffffff00;
+  }
+  
+  /* .marquee-item {
+    width: 150px;
+    height: auto;
+    margin: 0 80px;
+    
+  } */
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(-1%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes scroll-reverse {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(-1%);
+    }
+  }
+  
+  .marquee-gradient-left {
+    background-image: linear-gradient(270deg, #061c2300, #f2f2f2);
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    inset: 0% auto 0% 0%;
+  }
+  .marquee-gradient-right {
+    background-image: linear-gradient(90deg, #f7f5f200, #f2f2f2);
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    inset: 0% 0% 0% auto;
+  }

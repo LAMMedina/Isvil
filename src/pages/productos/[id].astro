@@ -1,0 +1,11 @@
+---
+// src/pages/productos/[id].astro
+import Layout from '@layouts/Layout.astro';
+import ProductDetail from '@components/ProductDetail';
+
+const { id } = Astro.params;
+---
+
+<Layout title={`Medical Isvil - SAC ${id}`}>
+	<ProductDetail id={id} client:load />
+</Layout>

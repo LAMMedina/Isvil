@@ -1,0 +1,11 @@
+---
+import Layout from '@layouts/Layout.astro';
+import About from '@components/About';
+import Contacto from '@components/Contact';
+---
+<Layout title="Medical Isvil - SAC - Sobre nosotros">
+    <div style={{minHeight: '100vh'}}>
+        <About client:load/>
+    </div>
+    <Contacto client:load />
+</Layout>

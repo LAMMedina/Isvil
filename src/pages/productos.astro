@@ -1,0 +1,11 @@
+---
+// src/pages/productos.astro
+import Layout from '@layouts/Layout.astro';
+import ProductsSPA from '@components/ProductsSPA';
+const { searchParams } = new URL(Astro.request.url); // Obtener los parámetros de búsqueda
+const categoria = searchParams.get('categoria'); // Obtener el valor del parámetro 'categoria'
+---
+
+<Layout title="Medical Isvil - SAC - Productos">
+	<ProductsSPA categoria={categoria} client:load />
+</Layout>

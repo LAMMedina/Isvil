@@ -1,0 +1,9 @@
+---
+// src/pages/admin/users.astro
+import AdminLayout from '@layouts/AdminLayout.astro';
+import UserList from '@admin/UserList';
+---
+
+<AdminLayout title="Users">
+  <UserList client:load />
+</AdminLayout>

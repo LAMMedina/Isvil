@@ -1,0 +1,24 @@
+---
+import AdminLayout from '@layouts/AdminLayout.astro';
+import { verifyToken } from '@lib/auth';
+
+const token = Astro.cookies.get('token')?.value;
+
+if (!token) {
+  return Astro.redirect('/login');
+}
+
+try {
+  const user = await verifyToken(token);
+  if (user.role !== 'admin') {
+    return Astro.redirect('/');
+  }
+} catch (error) {
+  console.error('Token verification failed:', error);
+  return Astro.redirect('/login');
+}
+---
+
+<AdminLayout title="Dashboard">
+  <p>Welcome to the admin dashboard!</p>
+</AdminLayout>

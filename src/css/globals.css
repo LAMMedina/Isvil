@@ -1,0 +1,56 @@
+/* Contenedor de estilo personalizado */
+select {
+    appearance: none; /* Ocultar la flecha predeterminada */
+    -webkit-appearance: none; /* Para navegadores WebKit */
+    -moz-appearance: none; /* Para Firefox */
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"><path d="M0 0l5 6 5-6H0z" fill="%23FF6700"/></svg>'); /* Flecha azul personalizada */
+    background-repeat: no-repeat;
+    background-position: right 15px center; /* Ubicación de la flecha */
+    background-size: 10px 6px; /* Tamaño de la flecha */
+  }
+  
+  select:focus {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"><path d="M0 0l5 6 5-6H0z" fill="%2300B14B"/></svg>'); /* Cambia color en focus */
+  }
+  
+
+  /* Estilos CSS para el layout */
+  html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Eliminar la barra de desplazamiento predeterminada */
+}
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll; /* Habilitar el desplazamiento vertical */
+    /* scrollbar-width: thin; */ /* Para navegadores Firefox */
+    scrollbar-color: #FF6700 #F2F2F2; /* Color del thumb y del track */
+}
+/* Estilos para navegadores WebKit (Chrome, Safari) */
+body::-webkit-scrollbar {
+    width: 20px; /* Ancho del scrollbar */
+}
+body::-webkit-scrollbar-track {
+    background: #ffffff; /* Color del track */
+    border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #FF6700; /* Color del thumb */
+    border-radius: 5px; /* Bordes redondeados */
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #00B14B; /* Color del thumb al pasar el ratón por encima */
+}
+main {
+    flex: 1;
+}
+
+.text-shadow {
+    text-shadow: 
+      1px 1px 0 rgba(0, 0, 0, 0.7), /* Sombra negra */
+      -1px -1px 0 rgba(0, 0, 0, 0.7), /* Sombra negra */
+      1px -1px 0 rgba(0, 0, 0, 0.7), /* Sombra negra */
+      -1px 1px 0 rgba(0, 0, 0, 0.7); /* Sombra negra */
+  }

@@ -1,0 +1,9 @@
+---
+// src/pages/admin/products.astro
+import AdminLayout from '@layouts/AdminLayout.astro';
+import ProductList from '@admin/ProductList';
+---
+
+<AdminLayout title="Products">
+  <ProductList client:load />
+</AdminLayout>
