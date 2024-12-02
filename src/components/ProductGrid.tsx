@@ -2,11 +2,11 @@
 import React from 'react';
 
 const products = [
-  { id: 1, name: 'Analizador de Tiras de Orina', category: 'Equipos de Laboratorio', image: '/img-categories/analizador1.png', link: '/productos/1', hoverImage: '/img-categories/analizador2.png' },
+  { id: 1, name: 'Analizador de Tiras de Orina - NUVE', category: 'Equipos de Laboratorio', image: '/img-categories/analizador1.png', link: '/productos/1', hoverImage: '/img-categories/analizador2.png' },
   { id: 2, name: '3M Clinpro', category: 'Cuidado Bucal', image: '/img-categories/clinpro1.png', link: '/productos/2', hoverImage: '/img-categories/clinpro2.png'},
-  { id: 3, name: 'HCG Tiras o Cassete', category: 'Pruebas Rápidas', image: '/img-categories/hcg1.png', link: '/productos/3', hoverImage: '/img-categories/hcg2.png'},
-  { id: 4, name: 'Tips para Pipetas', category: 'Materiales Médicos', image: '/img-categories/tips1.png', link: '/productos/4', hoverImage: '/img-categories/tips2.png'},
-  { id: 5, name: 'Dermosol', category: 'Cuidado Personal y Hogar', image: '/img-categories/dermosol1.png', link: '/productos/5', hoverImage: '/img-categories/dermosol2.png'},
+  { id: 3, name: 'Ecotest - Prueba Rápida HGG', category: 'Pruebas Rápidas y Reactivos', image: '/img-categories/hcg1.png', link: '/productos/3', hoverImage: '/img-categories/hcg2.png'},
+  { id: 4, name: 'Tips Amarillos No Estériles', category: 'Materiales Médicos', image: '/img-categories/tips1.png', link: '/productos/4', hoverImage: '/img-categories/tips2.png'},
+  { id: 5, name: 'Dermosol - Protectores Solares', category: 'Cuidado Personal y Hogar', image: '/img-categories/dermosol1.png', link: '/productos/5', hoverImage: '/img-categories/dermosol2.png'},
   { id: '', name: 'Agujas Berpu', category: 'Materiales Médicos', image: '/img-categories/berpu1.png', link: '/productos/6', hoverImage: '/img-categories/berpu2.png'},
 ];
 

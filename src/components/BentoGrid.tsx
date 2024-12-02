@@ -8,7 +8,7 @@ const categories = [
   { name: 'Cuidado Personal y Hogar', image: '/img-categories/cuidadoPersonal1.png', hoverImage: '/img-categories/cuidadoPersonal2.png' },
   { name: 'Material Médico', image: '/img-categories/materialMedico1.png', hoverImage: '/img-categories/materialMedico2.png' },
   { name: 'Dispositivos In Vitro', image: '/img-categories/inVitro1.png', hoverImage: '/img-categories/inVitro2.png' },
-  { name: 'Pruebas Rápidas', image: '/img-categories/pruebasRapidas1.png', hoverImage: '/img-categories/pruebasRapidas2.png' },
+  { name: 'Pruebas Rápidas y Reactivos', image: '/img-categories/pruebasRapidas1.png', hoverImage: '/img-categories/pruebasRapidas2.png' },
   { name: 'Equipos de Laboratorio', image: '/img-categories/equiposLab1.png', hoverImage: '/img-categories/equiposLab2.png' },
   /* { name: 'Insumos Hospitalarios', image: '/placeholder.svg?height=300&width=400', link: '/productos?categoria=Insumos Hospitalarios' },
   { name: 'otro', link: '/productos?categoria=otro'},

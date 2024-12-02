@@ -44,6 +44,7 @@ export default function ProductList() {
     maxPrice: "",
     minStock: "",
     maxStock: "",
+    productName: "",
   });
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -106,11 +107,11 @@ export default function ProductList() {
     e.preventDefault();
     setIsProcessing(true);
     const formData = new FormData();
-    
+
     if (!newProduct.name || !newProduct.description || newProduct.price === undefined || newProduct.stock === undefined || newProduct.category_id === undefined) {
-        alert('Por favor, completa todos los campos requeridos.');
-        setIsProcessing(false);
-        return;
+      alert('Por favor, completa todos los campos requeridos.');
+      setIsProcessing(false);
+      return;
     }
 
     formData.append('name', newProduct.name);
@@ -119,37 +120,37 @@ export default function ProductList() {
     formData.append('stock', newProduct.stock.toString());
     formData.append('category_id', newProduct.category_id.toString());
     if (newProduct.image) {
-        formData.append('image', newProduct.image);
+      formData.append('image', newProduct.image);
     }
 
     try {
-        const response = await fetch("/api/products", {
-            method: "POST",
-            body: formData,
-        });
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error || 'Failed to create product');
-        }
-        const createdProduct = await response.json();
-        setProducts([...products, createdProduct]);
-        cache.products = [...cache.products, createdProduct];
-        setNewProduct({
-            name: "",
-            description: "",
-            price: undefined,
-            stock: undefined,
-            category_id: undefined,
-            image: undefined,
-        });
-        if (fileInputRef.current) {
-            fileInputRef.current.value = "";
-        }
+      const response = await fetch("/api/products", {
+        method: "POST",
+        body: formData,
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to create product');
+      }
+      const createdProduct = await response.json();
+      setProducts([...products, createdProduct]);
+      cache.products = [...cache.products, createdProduct];
+      setNewProduct({
+        name: "",
+        description: "",
+        price: undefined,
+        stock: undefined,
+        category_id: undefined,
+        image: undefined,
+      });
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     } catch (error) {
-        console.error('Error creating product:', error);
-        alert(`Error creating product: ${error.message}`);
+      console.error('Error creating product:', error);
+      alert(`Error creating product: ${error.message}`);
     } finally {
-        setIsProcessing(false);
+      setIsProcessing(false);
     }
   }
 
@@ -203,10 +204,10 @@ export default function ProductList() {
 
   async function handleDelete() {
     if (!productToDelete) return;
-    
+
     setIsProcessing(true);
     setIsConfirmationOpen(false);
-    
+
     try {
       const response = await fetch(`/api/products/${productToDelete.id}`, { method: "DELETE" });
       if (!response.ok) {
@@ -241,7 +242,9 @@ export default function ProductList() {
         product.price <= parseFloat(filters.maxPrice)) &&
       (filters.minStock === "" ||
         product.stock >= parseInt(filters.minStock)) &&
-      (filters.maxStock === "" || product.stock <= parseInt(filters.maxStock))
+      (filters.maxStock === "" || product.stock <= parseInt(filters.maxStock)) &&
+      (filters.productName === "" ||
+        product.name.toLowerCase().includes(filters.productName.toLowerCase()))
     );
   });
 
@@ -251,14 +254,14 @@ export default function ProductList() {
     modalImage.src = imageUrl;
     modalImage.alt = 'Product Image';
     modalImage.className = 'w-96 h-auto';
-    
+
     const modalContainer = document.createElement('div');
     modalContainer.className = 'fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75';
-    
+
     const modalContent = document.createElement('div');
     modalContent.className = 'bg-white p-4 rounded-lg shadow-lg';
     modalContent.appendChild(modalImage);
-    
+
     const closeButton = document.createElement('button');
     closeButton.innerText = 'Cerrar';
     closeButton.className = 'mt-4 bg-red-500 text-white px-4 py-2 rounded';
@@ -266,7 +269,7 @@ export default function ProductList() {
       setIsProductModalOpen(false);
       modalContainer.remove();
     };
-    
+
     modalContent.appendChild(closeButton);
     modalContainer.appendChild(modalContent);
     document.body.appendChild(modalContainer);
@@ -398,69 +401,82 @@ export default function ProductList() {
 
           <div className="mb-8 bg-white p-6 rounded-lg shadow">
             <h2 className="text-xl font-bold mb-4">Filter Products</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div>
-                <label className="block mb-2">Category</label>
-                <select
-                  name="category"
-                  value={filters.category}
-                  onChange={handleFilterChange}
-                  className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent">
-                  <option value="">All Categories</option>
-                  {categories.map((category) => (
-                    <option key={category.id} value={category.id}>
-                      {category.name}
-                    </option>
-                  ))}
-                </select>
+            <form>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div>
+                  <label className="block mb-2">Category</label>
+                  <select
+                    name="category"
+                    value={filters.category}
+                    onChange={handleFilterChange}
+                    className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent">
+                    <option value="">All Categories</option>
+                    {categories.map((category) => (
+                      <option key={category.id} value={category.id}>
+                        {category.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block mb-2">Min Price</label>
+                  <input
+                    type="number"
+                    name="minPrice"
+                    value={filters.minPrice}
+                    onChange={handleFilterChange}
+                    className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent"
+                    placeholder="Min Price"
+                    disabled
+                  />
+                </div>
+                <div>
+                  <label className="block mb-2">Max Price</label>
+                  <input
+                    type="number"
+                    name="maxPrice"
+                    value={filters.maxPrice}
+                    onChange={handleFilterChange}
+                    className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent"
+                    placeholder="Max Price"
+                    disabled
+                  />
+                </div>
+                <div>
+                  <label className="block mb-2">Min Stock</label>
+                  <input
+                    type="number"
+                    name="minStock"
+                    value={filters.minStock}
+                    onChange={handleFilterChange}
+                    className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent"
+                    placeholder="Min Stock"
+                  />
+                </div>
+                <div>
+                  <label className="block mb-2">Max Stock</label>
+                  <input
+                    type="number"
+                    name="maxStock"
+                    value={filters.maxStock}
+                    onChange={handleFilterChange}
+                    className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent"
+                    placeholder="Max Stock"
+                  />
+                </div>
+                <div>
+                  <label className="block mb-2">Product Name</label>
+                  <input
+                    type="text"
+                    name="productName"
+                    value={filters.productName}
+                    onChange={handleFilterChange}
+                    className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent"
+                    placeholder="Filter by product name"
+                  />
+                </div>
               </div>
-              <div>
-                <label className="block mb-2">Min Price</label>
-                <input
-                  type="number"
-                  name="minPrice"
-                  value={filters.minPrice}
-                  onChange={handleFilterChange}
-                  className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent"
-                  placeholder="Min Price"
-                  disabled
-                />
-              </div>
-              <div>
-                <label className="block mb-2">Max Price</label>
-                <input
-                  type="number"
-                  name="maxPrice"
-                  value={filters.maxPrice}
-                  onChange={handleFilterChange}
-                  className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent"
-                  placeholder="Max Price"
-                  disabled
-                />
-              </div>
-              <div>
-                <label className="block mb-2">Min Stock</label>
-                <input
-                  type="number"
-                  name="minStock"
-                  value={filters.minStock}
-                  onChange={handleFilterChange}
-                  className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent"
-                  placeholder="Min Stock"
-                />
-              </div>
-              <div>
-                <label className="block mb-2">Max Stock</label>
-                <input
-                  type="number"
-                  name="maxStock"
-                  value={filters.maxStock}
-                  onChange={handleFilterChange}
-                  className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent"
-                  placeholder="Max Stock"
-                />
-              </div>
-            </div>
+            </form>
           </div>
 
           <div className="bg-white rounded-lg shadow overflow-hidden">
