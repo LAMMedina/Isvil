@@ -7,7 +7,7 @@ const products = [
   { id: 3, name: 'Ecotest - Prueba Rápida HGG', category: 'Pruebas Rápidas y Reactivos', image: '/img-categories/hcg1.png', link: '/productos/3', hoverImage: '/img-categories/hcg2.png'},
   { id: 4, name: 'Tips Amarillos No Estériles', category: 'Materiales Médicos', image: '/img-categories/tips1.png', link: '/productos/4', hoverImage: '/img-categories/tips2.png'},
   { id: 5, name: 'Dermosol - Protectores Solares', category: 'Cuidado Personal y Hogar', image: '/img-categories/dermosol1.png', link: '/productos/5', hoverImage: '/img-categories/dermosol2.png'},
-  { id: '', name: 'Agujas Berpu', category: 'Materiales Médicos', image: '/img-categories/berpu1.png', link: '/productos/6', hoverImage: '/img-categories/berpu2.png'},
+  { id: '', name: 'Agujas para Extracción - BERPU', category: 'Materiales Médicos', image: '/img-categories/berpu1.png', link: '/productos/6', hoverImage: '/img-categories/berpu2.png'},
 ];
 
 export default function ProductGrid() {
