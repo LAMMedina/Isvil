@@ -47,7 +47,7 @@ export default function ProductGrid() {
                     <h3 className={`relative text-white ${textSize} font-semibold text-shadow`}>
                       {product.name}
                     </h3>
-                    <p className="text-sm text-third text-shadow">{product.category}</p>
+                    <p className="text-sm text-white text-shadow">{product.category}</p>
                     {/* Underline animado */}
                     <div className="absolute inset-x-0 bottom-4 h-1 bg-gradient-to-r from-orange-500 to-transparent"></div>
                   </div>
