@@ -53,6 +53,8 @@ export default function ProductList() {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [productToDelete, setProductToDelete] = useState<Product | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 5; // Número de productos por página
 
   const fetchProducts = useCallback(async (forceRefresh = false) => {
     if (!forceRefresh && cache.products.length > 0) {
@@ -247,6 +249,11 @@ export default function ProductList() {
         product.name.toLowerCase().includes(filters.productName.toLowerCase()))
     );
   });
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
   async function handleOpenModal(imageUrl: string) {
     setIsProductModalOpen(true);
@@ -507,11 +514,13 @@ export default function ProductList() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {filteredProducts.map((product) => (
+                {currentProducts.map((product, index) => (
                   <tr key={product.id}>
                     <td className="px-6 py-4 whitespace-nowrap relative group">
+                      <span className="text-xs text-gray-500">{(index + 1) + (currentPage - 1) * productsPerPage}</span>
                       {product.image_url && (
                         <>
+                          
                           <img src={product.image_url} alt={product.name} className="h-20 w-20 object-cover" />
                           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                             <button
@@ -553,6 +562,26 @@ export default function ProductList() {
                 ))}
               </tbody>
             </table>
+
+            <div className="flex justify-between mt-4">
+              <button
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="bg-gray-300 text-gray-700 px-4 py-2 rounded"
+              >
+                Anterior
+              </button>
+              <span>
+                Página {currentPage} de {totalPages}
+              </span>
+              <button
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="bg-gray-300 text-gray-700 px-4 py-2 rounded"
+              >
+                Siguiente
+              </button>
+            </div>
           </div>
 
           {isModalOpen && (
