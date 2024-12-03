@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Fuse from 'fuse.js';
 import Spinner from '@admin/Spinner';
+import normalizeString from '@utils/stringUtils';
 
 export default function ProductsSPA({ categoria }) {
   const [allProducts, setAllProducts] = useState([]);
@@ -161,7 +162,7 @@ export default function ProductsSPA({ categoria }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.length > 0 ? (
           products.map(product => (
-            <a key={product.id} href={`/productos/${product.id}`} className="border rounded-lg overflow-hidden shadow-md block hover:scale-105 hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
+            <a key={product.id} href={`/productos/${normalizeString(product.name)}`} className="border rounded-lg overflow-hidden shadow-md block hover:scale-105 hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
               <img
                 src={product.image_url}
                 alt={product.name}

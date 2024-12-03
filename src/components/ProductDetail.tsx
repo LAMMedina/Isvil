@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Spinner from '@admin/Spinner';
 import { ArrowLeft } from 'lucide-react';
+import normalizeString from '@utils/stringUtils';
 
 interface Product {
   id: number;
@@ -45,9 +46,9 @@ export default function ProductDetail({ id }: ProductDetailProps) {
           }
           const products = await response.json();
           /* console.log('All products:', products); */
-          
+
           // Buscar el producto que coincida con el nombre (id en este caso)
-          const foundProduct = products.find((p: Product) => p.name === decodeURIComponent(id));
+          const foundProduct = products.find((p: Product) => normalizeString(p.name) === decodeURIComponent(id));
           /* console.log('Found product:', foundProduct); */
           
           if (foundProduct) {
