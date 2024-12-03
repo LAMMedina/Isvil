@@ -185,7 +185,15 @@ export default function ProductList() {
           throw new Error(errorData.error || 'Failed to update product');
         }
         const updatedProduct = await response.json();
-        const updatedProducts = products.map(p => p.id === updatedProduct.id ? updatedProduct : p);
+
+        // Fetch the updated product data
+        const refreshResponse = await fetch(`/api/products/${updatedProduct.id}`);
+        if (!refreshResponse.ok) {
+          throw new Error('Failed to fetch updated product data');
+        }
+        const refreshedProduct = await refreshResponse.json();
+
+        const updatedProducts = products.map(p => p.id === refreshedProduct.id ? refreshedProduct : p);
         setProducts(updatedProducts);
         cache.products = updatedProducts;
         setEditProduct(null);
