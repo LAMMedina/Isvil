@@ -138,8 +138,8 @@ export default function ProductList() {
       setNewProduct({
         name: "",
         description: "",
-        price: undefined,
-        stock: undefined,
+        price: /* undefined */0, // descomentar y quitar el 0 si quiere que cuando se actualice el estado el valor por defecto sea undefined o dejarlo si quiere sea 0
+        stock: /* undefined */0, // descomentar y quitar el 0 si quiere que cuando se actualice el estado el valor por defecto sea undefined o dejarlo si quiere sea 0
         category_id: undefined,
         image: undefined,
       });
