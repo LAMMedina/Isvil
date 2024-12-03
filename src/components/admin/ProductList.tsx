@@ -565,6 +565,13 @@ export default function ProductList() {
 
             <div className="flex justify-between mt-4">
               <button
+                onClick={() => setCurrentPage(1)}
+                disabled={currentPage === 1}
+                className="bg-gray-300 text-gray-700 px-4 py-2 rounded"
+              >
+                Inicio
+              </button>
+              <button
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
                 className="bg-gray-300 text-gray-700 px-4 py-2 rounded"
@@ -580,6 +587,13 @@ export default function ProductList() {
                 className="bg-gray-300 text-gray-700 px-4 py-2 rounded"
               >
                 Siguiente
+              </button>
+              <button
+                onClick={() => setCurrentPage(totalPages)}
+                disabled={currentPage === totalPages}
+                className="bg-gray-300 text-gray-700 px-4 py-2 rounded"
+              >
+                Final
               </button>
             </div>
           </div>
