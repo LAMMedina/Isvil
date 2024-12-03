@@ -61,7 +61,7 @@ export default function ProductsSPA({ categoria }) {
           localStorage.setItem('categories', JSON.stringify(data)); // Guardar en caché
         }
         // Encontrar el ID de la categoría que coincide con el nombre recibido
-        const category = data.find(cat => cat.name === categoria);
+        const category = data.find(cat => normalizeString(cat.name) === normalizeString(categoria));
         if (category) {
           setSelectedCategoryId(category.id); // Guardar el ID de la categoría
         }
@@ -72,7 +72,7 @@ export default function ProductsSPA({ categoria }) {
 
     fetchProducts();
     fetchCategories();
-  }, [categoria]);
+  }, [normalizeString(categoria)]);
 
   // Memorizar Fuse.js para búsqueda
   const fuse = useMemo(() => {
@@ -162,15 +162,20 @@ export default function ProductsSPA({ categoria }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.length > 0 ? (
           products.map(product => (
-            <a key={product.id} href={`/productos/${normalizeString(product.name)}`} className="border rounded-lg overflow-hidden shadow-md block hover:scale-105 hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
+            <a key={product.id} href={`/productos/${encodeURIComponent(normalizeString(product.name))}`} className="border rounded-lg overflow-hidden shadow-md block hover:scale-105 hover:translate-y-[-10px] transition-transform duration-300 ease-in-out bg-white">
               <img
                 src={product.image_url}
                 alt={product.name}
-                className="w-full h-48 object-cover"
+                className="w-48 h-48 object-cover mx-auto"
               />
-              <div className="p-4">
-                <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
-                <p className="text-gray-600 mb-2">{product.category}</p>
+              <div className="p-4 bg-six h-24">
+                <h2 className="text-xl font-semibold mb-2">{product.name.slice(0, 35)}</h2>
+                <p className="text-gray-600 mb-2">
+                  {selectedCategoryId 
+                    ? categories.find(category => category.id === Number(selectedCategoryId))?.name || 'No disponible' 
+                    : product.category_name // Muestra la categoría del producto si no hay categoría seleccionada
+                  }
+                </p>
                 {/* <p className="text-gray-800 mb-4">${product.price.toFixed(2)}</p> */}
               </div>
             </a>

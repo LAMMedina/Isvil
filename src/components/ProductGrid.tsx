@@ -30,7 +30,7 @@ const products = [
   {
     id: 4,
     name: "Tips Amarillos No Estériles",
-    category: "Materiales Médicos",
+    category: "Material de Laboratorio",
     image: "/img-categories/tips1.png",
     link: "/productos/4",
     hoverImage: "/img-categories/tips2.png",
@@ -46,7 +46,7 @@ const products = [
   {
     id: 6,
     name: "Agujas para Extracción - BERPU",
-    category: "Materiales Médicos",
+    category: "Dispositivo Médico",
     image: "/img-categories/berpu1.png",
     link: "/productos/6",
     hoverImage: "/img-categories/berpu2.png",

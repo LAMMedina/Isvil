@@ -1,13 +1,14 @@
   // Start of Selection
 // src/components/BentoGrid.tsx
+import normalizeString from '@utils/stringUtils';
 import React from 'react';
 import '@css/globals.css';
 
 const categories = [
   { name: 'Cuidado Bucal', image: '/img-categories/cuidadoBucal1.png', hoverImage: '/img-categories/cuidadoBucal2.png' },
   { name: 'Cuidado Personal y Hogar', image: '/img-categories/cuidadoPersonal1.png', hoverImage: '/img-categories/cuidadoPersonal2.png' },
-  { name: 'Material Médico', image: '/img-categories/materialMedico1.png', hoverImage: '/img-categories/materialMedico2.png' },
-  { name: 'Dispositivos In Vitro', image: '/img-categories/inVitro1.png', hoverImage: '/img-categories/inVitro2.png' },
+  { name: 'Dispositivo Médico', image: '/img-categories/materialMedico1.png', hoverImage: '/img-categories/materialMedico2.png' },
+  { name: 'Material de Laboratorio', image: '/img-categories/inVitro1.png', hoverImage: '/img-categories/inVitro2.png' },
   { name: 'Pruebas Rápidas y Reactivos', image: '/img-categories/pruebasRapidas1.png', hoverImage: '/img-categories/pruebasRapidas2.png' },
   { name: 'Equipos de Laboratorio', image: '/img-categories/equiposLab1.png', hoverImage: '/img-categories/equiposLab2.png' },
   /* { name: 'Insumos Hospitalarios', image: '/placeholder.svg?height=300&width=400', link: '/productos?categoria=Insumos Hospitalarios' },
@@ -28,7 +29,7 @@ export default function BentoGrid() {
             const textSize = index === 0 ? 'md:text-3xl' : index === 4 ? 'md:text-2xl' : '';
 
             return (
-              <a href={`/productos?categoria=${encodeURIComponent(category.name)}`} key={index} className={`relative overflow-hidden rounded-lg shadow-lg hover:scale-105 hover:shadow-lg hover:translate-y-[-10px] transition-transform duration-300 ease-in-out md:shadow-slate-400 ${
+              <a href={`/productos?categoria=${encodeURIComponent(normalizeString(category.name))}`} key={index} className={`relative overflow-hidden rounded-lg shadow-lg hover:scale-105 hover:shadow-lg hover:translate-y-[-10px] transition-transform duration-300 ease-in-out md:shadow-slate-400 ${
                   index === 0 ? 'col-span-3 row-span-2' : 
                   index === 4 ? 'col-span-2' : ''
                 }`}>
