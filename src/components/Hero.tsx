@@ -80,7 +80,7 @@ export default function Hero() {
         <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left 2xl:ml-32">
           <h1 className="text-5xl font-bold leading-none sm:text-6xl">
             Importación de
-            <span className="text-[#FF8C39]"> Productos</span> Farmacéuticos
+            <span className="text-[#FF8C39]"> Dispositivos</span> Médicos
           </h1>
           <p className="mt-6 mb-8 text-lg sm:mb-12">
             Ofrecemos una amplia gama de productos farmacéuticos,

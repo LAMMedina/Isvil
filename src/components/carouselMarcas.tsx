@@ -7,7 +7,7 @@ const brands = [
   'img-marcas/recurso-3.svg',
   'img-marcas/recurso-4.svg',
   'img-marcas/recurso-5.svg',
-  'img-marcas/recurso-6.svg',
+  /* 'img-marcas/recurso-6.svg', */
   'img-marcas/recurso-7.svg',
   /* 'img-marcas/recurso-8.svg', */
   'img-marcas/recurso-9.svg',
