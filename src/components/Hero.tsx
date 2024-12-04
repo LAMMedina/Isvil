@@ -78,30 +78,32 @@ export default function Hero() {
       <div className="container flex flex-col justify-center md:p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between ">
         {/* Texto del lado izquierdo */}
         <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left 2xl:ml-32">
-          <h1 className="text-5xl font-bold leading-none sm:text-6xl">
+          <motion.h1 className="text-5xl font-bold leading-none sm:text-6xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
             Importación de
             <span className="text-[#FF8C39]"> Dispositivos</span> Médicos
-          </h1>
-          <p className="mt-6 mb-8 text-lg sm:mb-12">
+          </motion.h1>
+          <motion.p className="mt-6 mb-8 text-lg sm:mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
             Ofrecemos una amplia gama de productos farmacéuticos,
             <br className="hidden md:inline lg:hidden" />
             equipos médicos y pruebas rápidas de la más alta calidad.
-          </p>
+          </motion.p>
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start z-10">
-            <a
+            <motion.a
               rel="noopener noreferrer"
               href="/productos"
               className="px-8 py-3 text-lg font-semibold rounded bg-[#FF8C39] text-white hover:bg-[#FF8C45]/90 "
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
             >
               Ver Catálogo
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               rel="noopener noreferrer"
               href="/sobre-nosotros#contacto"
               className="px-8 py-3 text-lg font-semibold border rounded border-gray-800 hover:bg-gray-100 hover:scale-105"
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
             >
               Contactar
-            </a>
+            </motion.a>
           </div>
         </div>
 
