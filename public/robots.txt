@@ -1,0 +1,8 @@
+# Permitir a todos los motores de búsqueda rastrear todo el sitio
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+
+
+# URL del sitemap
+Sitemap: https://www.medical-isvil.com.pe/sitemap.xml
