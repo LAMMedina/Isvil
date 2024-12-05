@@ -28,12 +28,13 @@ export default function ProductsSPA({ categoria }) {
           throw new Error('Error al cargar los productos');
         }
         const data = await response.json();
+        const sortedProducts = data.sort((a, b) => a.category_id - b.category_id);
 
         // Solo actualizar el caché si hay nuevos productos
-        if (JSON.stringify(data) !== cachedProducts) {
-          setAllProducts(data);
-          setProducts(data); // Inicializa los productos a todos al principio
-          localStorage.setItem('products', JSON.stringify(data)); // Guardar en caché
+        if (JSON.stringify(sortedProducts) !== cachedProducts) {
+          setAllProducts(sortedProducts);
+          setProducts(sortedProducts); // Inicializa los productos a todos al principio
+          localStorage.setItem('products', JSON.stringify(sortedProducts)); // Guardar en caché
         }
       } catch (error) {
         setError(error.message);
