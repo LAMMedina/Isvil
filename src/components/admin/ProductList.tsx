@@ -466,6 +466,7 @@ export default function ProductList() {
                     onChange={handleFilterChange}
                     className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent"
                     placeholder="Min Stock"
+                    disabled
                   />
                 </div>
                 <div>
@@ -477,6 +478,7 @@ export default function ProductList() {
                     onChange={handleFilterChange}
                     className="border p-2 w-full rounded focus:outline-none focus:ring-2 pl-2 focus:ring-orange-600 caret-orange-500 focus:placeholder-transparent"
                     placeholder="Max Stock"
+                    disabled
                   />
                 </div>
                 <div>
