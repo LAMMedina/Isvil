@@ -76,7 +76,7 @@ export default function Footer() {
 					</a>
 					<a rel="noopener noreferrer" target='_blank' href="https://www.tiktok.com/@medical_isvil" title="TikTok" className="flex items-center p-1">	
 					<svg width="24" height="24" fill="none">
-						<g clip-path="url(#a)">
+						<g clipPath="url(#a)">
 						<path fill="url(#b)" d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Z"/>
 						<path fill="url(#c)" d="M18 9a3 3 0 0 1-3-4h-2v10a2 2 0 1 1-2-2v-2a4 4 0 1 0 4 4v-5l3 1V9Z"/>
 						<path fill="url(#d)" d="M18 8a3 3 0 0 1-4-3h-2v9a2 2 0 1 1-1-2v-2a4 4 0 1 0 3 4V9l4 2V8Z"/>
@@ -84,24 +84,24 @@ export default function Footer() {
 						</g>
 						<defs>
 						<linearGradient id="b" x1="-.1" x2="23.9" y1="24.1" y2=".1" gradientUnits="userSpaceOnUse">
-						<stop stop-color="#111"/>
-						<stop offset="1" stop-color="#323232"/>
+						<stop stopColor="#111"/>
+						<stop offset="1" stopColor="#323232"/>
 						</linearGradient>
 						<linearGradient id="c" x1="7.2" x2="17.3" y1="17.7" y2="7.6" gradientUnits="userSpaceOnUse">
-						<stop stop-color="#B5053C"/>
-						<stop offset=".2" stop-color="#C90441"/>
-						<stop offset=".7" stop-color="#F0014B"/>
-						<stop offset="1" stop-color="#FF004F"/>
+						<stop stopColor="#B5053C"/>
+						<stop offset=".2" stopColor="#C90441"/>
+						<stop offset=".7" stopColor="#F0014B"/>
+						<stop offset="1" stopColor="#FF004F"/>
 						</linearGradient>
 						<linearGradient id="d" x1="6.4" x2="17" y1="17.2" y2="6.5" gradientUnits="userSpaceOnUse">
-						<stop stop-color="#00B2C9"/>
-						<stop offset=".3" stop-color="#00C8D4"/>
-						<stop offset=".7" stop-color="#00E6E4"/>
-						<stop offset="1" stop-color="#00F1EA"/>
+						<stop stopColor="#00B2C9"/>
+						<stop offset=".3" stopColor="#00C8D4"/>
+						<stop offset=".7" stopColor="#00E6E4"/>
+						<stop offset="1" stopColor="#00F1EA"/>
 						</linearGradient>
 						<linearGradient id="e" x1=".4" x2="23.9" y1="23.8" y2=".3" gradientUnits="userSpaceOnUse">
-						<stop stop-color="#DDE3E4"/>
-						<stop offset="1" stop-color="#FCF7F7"/>
+						<stop stopColor="#DDE3E4"/>
+						<stop offset="1" stopColor="#FCF7F7"/>
 						</linearGradient>
 						<clipPath id="a">
 						<path fill="#fff" d="M0 0h24v24H0z"/>
